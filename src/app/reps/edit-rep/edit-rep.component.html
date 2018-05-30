@@ -1,0 +1,36 @@
+<div class="col-md-6">
+  <h2 class="text-center">Edit Rep</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <div class="col-sm-12"><label for="id">Id:</label>
+        <input type="id" readOnly="true" formControlName="id" placeholder="Id" name="id" class="form-control id-field" id="id">
+      </div>
+  
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="firstName" formControlName="firstName" placeholder="FirstName" name="firstName" class="form-control" id="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="lastName" formControlName="lastName" placeholder="LastName" name="lastName" class="form-control" id="lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+    </div>
+
+    <div class="form-group">
+      <label for="initials">Initials:</label>
+      <input type="initials" formControlName="initials" placeholder="Initials" name="initials" class="form-control width-80" id="initials">
+    </div>
+
+    <div class="form-group">
+      <label for="isActive">Active:</label>
+      <input type="isActive" formControlName="isActive" placeholder="IsActive" name="isActive" class="form-control width-80" id="isActive">
+    </div>
+
+    <button class="btn btn-primary btn-size">Update</button>
+    <button type="button" class="btn btn-secondary btn-size btn-cancel" (click)="onCancel()">Cancel</button>
+  </form>
+</div>

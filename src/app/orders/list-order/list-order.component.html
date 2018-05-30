@@ -1,0 +1,42 @@
+<div class="col-md-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link  active" (click)="menuClick('Orders')">Orders</a>
+            <a class="nav-item nav-link" (click)="menuClick('Reps')">Reps</a>
+            <a class="nav-item nav-link" (click)="menuClick('Customers')">Customers</a>
+            <a class="nav-item nav-link" (click)="menuClick('Skus')">Skus</a>
+            <a class="nav-item nav-link" (click)="menuClick('Users')">Users</a>
+          </div>
+        </div>
+      </nav>
+  <h2> Orders</h2>
+  <button class="btn btn-primary btn-size btn-margin-below" (click)="addOrder()"> Add Order</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Credited Rep.</th>
+      <th>Entered By</th>
+      <th>Entry Date/Time</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders">
+      <td class="hidden">{{order.id}}</td>
+      <td>{{order.repGettingCredit}}</td>
+      <td>{{order.enteredBy}}</td>
+      <td>{{order.entryDateAndTime}}</td>
+      <td>
+        <button class="btn btn-primary btn-size" (click)="deleteOrder(order)"> Delete</button>
+        <button class="btn btn-primary btn-size btn-cancel" (click)="editOrder(order)"> Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

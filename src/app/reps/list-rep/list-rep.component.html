@@ -1,0 +1,46 @@
+<div class="col-md-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link  active" (click)="menuClick('Orders')">Orders</a>
+            <a class="nav-item nav-link" (click)="menuClick('Reps')">Reps</a>
+            <a class="nav-item nav-link" (click)="menuClick('Customers')">Customers</a>
+            <a class="nav-item nav-link" (click)="menuClick('Skus')">Skus</a>
+            <a class="nav-item nav-link" (click)="menuClick('Users')">Users</a>
+          </div>
+        </div>
+      </nav>
+  <h2> Reps</h2>
+  <button class="btn btn-primary btn-size btn-margin-below" (click)="addRep()"> Add Rep</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Initials</th>
+      <th>Active</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rep of reps">
+      <td class="hidden">{{rep.id}}</td>
+      <td>{{rep.firstName}}</td>
+      <td>{{rep.lastName}}</td>
+      <td>{{rep.email}}</td>
+      <td class="width-80">{{rep.initials}}</td>
+      <td class="width-80">{{rep.isActive}}</td>
+      <td>
+          <button class="btn btn-primary btn-size" (click)="deleteRep(rep)"> Delete</button>
+          <button class="btn btn-primary btn-size btn-cancel" (click)="editRep(rep)"> Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

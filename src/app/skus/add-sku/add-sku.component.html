@@ -1,0 +1,27 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Sku</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="skuNumber">Sku Number:</label>
+      <input type="skuNumber" formControlName="skuNumber" placeholder="SkuNumber" name="skuNumber" class="form-control width-128" id="skuNumber">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="name" formControlName="name" placeholder="Name" name="name" class="form-control width-256" id="name">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input type="description" formControlName="description" placeholder="Description" name="description" class="form-control width-256" id="description">
+    </div>
+
+    <div class="form-group">
+      <label for="regularPrice">Regular Price:</label>
+      <input type="regularPrice" formControlName="regularPrice" placeholder="RegularPrice" name="regularPrice" class="form-control width-180" id="regularPrice">
+    </div>
+
+    <button class="btn btn-primary btn-size">Add</button>
+    <button type="button" class="btn btn-secondary btn-size btn-cancel" (click)="onCancel()">Cancel</button>
+  </form>
+</div>

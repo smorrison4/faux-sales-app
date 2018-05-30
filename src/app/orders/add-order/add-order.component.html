@@ -1,0 +1,21 @@
+<div class="col-md-6">
+  <h2 class="text-center">Add Order</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="repGettingCredit">Credited Rep.: </label>
+      <input type="repGettingCredit" formControlName="repGettingCredit" placeholder="RepGettingCredit" name="repGettingCredit" class="form-control width-256" id="repGettingCredit">
+    </div>
+
+    <div class="form-group">
+      <label for="enteredBy">Entered By: </label>
+      <input type="enteredBy" formControlName="enteredBy" placeholder="EnteredBy" name="enteredBy" class="form-control width-256" id="enteredBy">
+    </div>
+
+    <div class="form-group">
+      <label for="entryDateAndTime">Entry Date/Time: </label>
+      <input type="entryDateAndTime" formControlName="entryDateAndTime" placeholder="EntryDateAndTime" name="entryDateAndTime" class="form-control width-128" id="entryDateAndTime">
+    </div>
+    <button class="btn btn-primary btn-size">Add</button>
+    <button type="button" class="btn btn-secondary btn-size btn-cancel" (click)="onCancel()">Cancel</button>
+  </form>
+</div>

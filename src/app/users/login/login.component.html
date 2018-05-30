@@ -1,0 +1,29 @@
+<!--<link href="node_modules/ng2-toastr/bundles/ng2-toastr.min.css" rel="stylesheet" />
+<script src="node_modules/ng2-toastr/bundles/ng2-toastr.min.js"></script>-->
+<div class="row">
+  <div class="col-md-7 col-md-offset-2 margins10">
+    <h1>Login </h1>
+    <label>hint: Enter user name &quot;JamesBond@gmail.com&quot; and password of &quot;agent007&quot;</label>
+    <br>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" formControlName="email" id="email">
+        <div *ngIf="submitted && loginForm.controls.email.errors" class="error">
+          <div *ngIf="loginForm.controls.email.errors.required">Email is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control width-128" formControlName="password" id="pwd">
+        <div *ngIf="submitted && loginForm.controls.password.errors" class="error">
+          <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+        </div>
+      </div>
+      <button class="btn btn-default btn-size">Login</button>
+      <div *ngIf="invalidLogin" class="error">
+        <div>Invalid credentials.</div>
+      </div>
+    </form>
+  </div>
+</div>
