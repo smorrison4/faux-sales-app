@@ -2,18 +2,18 @@
   <h2 class="text-center">Add Order</h2>
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="repGettingCredit">Credited Rep.: </label>
-      <input type="repGettingCredit" formControlName="repGettingCredit" placeholder="RepGettingCredit" name="repGettingCredit" class="form-control width-256" id="repGettingCredit">
+      <label for="creditedRep">Credited Rep.: </label>
+      <input type="text" minlength="1" maxlength="50" formControlName="creditedRep" placeholder="Credited rep" name="creditedRep" class="form-control width-256" id="creditedRep">
     </div>
 
     <div class="form-group">
       <label for="enteredBy">Entered By: </label>
-      <input type="enteredBy" formControlName="enteredBy" placeholder="EnteredBy" name="enteredBy" class="form-control width-256" id="enteredBy">
+      <input type="text" minlength="1" maxlength="50" formControlName="enteredBy" placeholder="Entered by" name="enteredBy" class="form-control width-256" id="enteredBy">
     </div>
 
     <div class="form-group">
       <label for="entryDateAndTime">Entry Date/Time: </label>
-      <input type="entryDateAndTime" formControlName="entryDateAndTime" placeholder="EntryDateAndTime" name="entryDateAndTime" class="form-control width-128" id="entryDateAndTime">
+      <input type="date" formControlName="entryDateAndTime" placeholder="Entry date" name="entryDateAndTime" class="form-control width-128" id="entryDateAndTime">
     </div>
     <button class="btn btn-primary btn-size">Add</button>
     <button type="button" class="btn btn-secondary btn-size btn-cancel" (click)="onCancel()">Cancel</button>

@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {OrderService} from "../../service/order.service";
 import {Router} from "@angular/router";
 import {Order} from "../../model/order.model";
+import {TransactionType} from "../../Transaction-type.enum";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-//import {first} from "rxjs/operators";
 
 @Component({
   selector: 'app-add-order',
@@ -19,7 +19,7 @@ export class AddOrderComponent implements OnInit {
   ngOnInit() {
     this.addForm = this.formBuilder.group({
       id: ['', Validators.required],
-      repGettingCredit: [],
+      creditedRep: [],
       enteredBy: [],
       entryDateAndTime: [],
     });
@@ -27,7 +27,7 @@ export class AddOrderComponent implements OnInit {
 
   onSubmit() {
     let order : Order = this.addForm.value;
-    if(! order.repGettingCredit) {
+    if(! order.creditedRep) {
       alert('Please fill in the RepGettingCredit field.');
       return;
     }

@@ -34,6 +34,12 @@ export class ListSkuComponent implements OnInit {
     this.router.navigate(['add-sku']);
   };
 
+  showSkuDiscounts(sku: Sku) {
+    localStorage.removeItem("listSkuNumberForDiscounts");
+    localStorage.setItem("listSkuNumberForDiscounts", sku.skuNumber);
+    this.router.navigate(['list-discount']);
+  }
+
   menuClick(menuItem: string) {
     menuItem = menuItem.toUpperCase();
     if( menuItem == "CUSTOMERS") {

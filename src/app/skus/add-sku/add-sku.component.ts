@@ -3,7 +3,6 @@ import {SkuService} from "../../service/sku.service";
 import {Router} from "@angular/router";
 import {Sku} from "../../model/sku.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-//import {first} from "rxjs/operators";
 
 @Component({
   selector: 'app-add-sku',

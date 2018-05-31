@@ -33,12 +33,14 @@
       <td>{{sku.skuNumber}}</td>
       <td>{{sku.name}}</td>
       <td>{{sku.description}}</td>
+      <td><button type="button" (click)="showSkuDiscounts(sku)">Discounts</button></td>
       <td>{{sku.regularPrice}}</td>
       <td>
+          <button class="btn btn-primary btn-size" (click)="deleteSku(sku)"> Delete</button>
           <button class="btn btn-primary btn-size btn-cancel" (click)="editSku(sku)"> Edit</button></td>
-          <button class="btn btn-primary btn-size" (click)="deleteSku(sku)"><i class="icon-trash"></i> Delete</button>
     </tr>
     </tbody>
   </table>
+        <!-- <i class="icon-trash"></i> -->
 </div>
 

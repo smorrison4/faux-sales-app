@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {OrderService} from "../../service/order.service";
 import {Order} from "../../model/order.model";
+import {TransactionType} from "../../Transaction-type.enum";
 
 @Component({
   selector: 'app-list-order',

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Order} from '../model/order.model';
+import { TransactionType} from '..//transaction-type.enum';
 import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
@@ -9,10 +10,10 @@ export class OrderService {
   baseUrl: string = 'http://localhost:8080/user-portal/orders';
 
   orders: Order[] = [
-    new Order(1, 'Rep1', 'Rep1', '5/21/2018'),
-    new Order(2, 'Rep2', 'Rep2', '5/22/2018'),
-    new Order(3, 'Rep3', 'Rep3', '5/23/2018'),
-    new Order(4, 'Rep4', 'Rep4', '5/24/2018'),
+    new Order(1, 'Rep1', TransactionType.SalesOrder, 'Rep1', '5/21/2018'),
+    new Order(2, 'Rep2', TransactionType.Adjustment, 'Rep2', '5/22/2018'),
+    new Order(3, 'Rep3', TransactionType.WalkInOrder, 'Rep3', '5/23/2018'),
+    new Order(4, 'Rep4', TransactionType.SalesOrder, 'Rep4', '5/24/2018'),
  ];
 
   getOrders() : Order[] {

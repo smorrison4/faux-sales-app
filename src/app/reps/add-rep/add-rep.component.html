@@ -3,27 +3,27 @@
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="firstName">First Name:</label>
-      <input type="firstName" formControlName="firstName" placeholder="FirstName" name="firstName" class="form-control width-128" id="firstName">
+      <input type="text" minlength="1" maxlength="25" formControlName="firstName" placeholder="First name" name="firstName" class="form-control width-128" id="firstName">
     </div>
 
     <div class="form-group">
       <label for="lastName">Last Name:</label>
-      <input type="lastName" formControlName="lastName" placeholder="LastName" name="lastName" class="form-control width-256" id="lastName">
+      <input type="text" minlength="1" maxlength="25" formControlName="lastName" placeholder="Last name" name="lastName" class="form-control width-256" id="lastName">
     </div>
 
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+      <input type="email" minlength="8" maxlength="255" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
     </div>
 
     <div class="form-group">
       <label for="initials">Initials:</label>
-      <input type="initials" formControlName="initials" placeholder="Initials" name="initials" class="form-control width-80" id="initials">
+      <input type="text"  minlength="2" maxlength="4"formControlName="initials" placeholder="Initials" name="initials" class="form-control width-80" id="initials">
     </div>
 
     <div class="form-group">
       <label for="isActive">Active:</label>
-      <input type="isActive" formControlName="isActive" placeholder="IsActive" name="isActive" class="form-control width-80" id="isActive">
+      <input type="text" minlength="1" maxlength="3" formControlName="isActive" placeholder="Y/N" name="isActive" class="form-control width-80" id="isActive">
     </div>
 
     <button class="btn btn-primary btn-size">Add</button>

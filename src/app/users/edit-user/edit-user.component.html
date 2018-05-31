@@ -2,22 +2,22 @@
   <h2 class="text-center">Edit User</h2>
   <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
       <div class="col-sm-12"><label for="id">Id:</label>
-        <input type="id" readOnly="true" formControlName="id" placeholder="Id" name="id" class="form-control id-field" id="id">
+        <input type="number" readOnly="true" formControlName="id" placeholder="Id" name="id" class="form-control id-field" id="id">
       </div>
   
   <div class="form-group">
       <label for="email">Email address:</label>
-      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+      <input type="email" minlength="8" maxlength="255" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
     </div>
 
     <div class="form-group">
       <label for="firstName">First Name:</label>
-      <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-contro width-128" id="firstName">
+      <input type="text" minlength="1" maxlength="25" formControlName="firstName" placeholder="First name" name="firstName" class="form-control width-128" id="firstName">
     </div>
 
     <div class="form-group">
       <label for="lastName">Last Name:</label>
-      <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control width-256" id="lastName">
+      <input type="text" minlength="1" maxlength="25" formControlName="lastName" placeholder="Last name" name="lastName" class="form-control width-256" id="lastName">
     </div>
 
     <button class="btn btn-primary btn-size">Update</button>
