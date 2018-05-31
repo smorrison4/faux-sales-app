@@ -1,0 +1,52 @@
+<div class="col-md-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!--<a class="navbar-brand" href="#">Navbar</a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link  active" (click)="menuClick('Orders')">Orders</a>
+            <a class="nav-item nav-link" (click)="menuClick('Reps')">Reps</a>
+            <a class="nav-item nav-link" (click)="menuClick('Customers')">Customers</a>
+            <a class="nav-item nav-link" (click)="menuClick('Skus')">Skus</a>
+            <a class="nav-item nav-link" (click)="menuClick('Users')">Users</a>
+          </div>
+        </div>
+      </nav>
+  <h2> Discounts</h2>
+  <button class="btn btn-primary btn-size btn-margin-below" (click)="addDiscount()"> Add Discount</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>SkuNumber</th>
+      <th>IsBogo</th>
+      <th>PercentOff</th>
+      <th>AmountOff</th>
+      <th>IsDisplayRequired</th>
+      <th>QualifyingTerms</th>
+      <th>StartDate</th>
+      <th>EndDate</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let discount of discounts">
+      <td class="hidden">{{discount.id}}</td>
+      <td>{{discount.skuNumber}}</td>
+      <td>{{discount.isBogo}}</td>
+      <td>{{discount.percentOff}}</td>
+      <td>{{discount.amountOff}}</td>
+      <td>{{discount.isDisplayRequired}}</td>
+      <td>{{discount.qualifyingTerms}}</td>
+      <td>{{discount.startDate}}</td>
+      <td>{{discount.endDate}}</td>
+      <td>
+          <button class="btn btn-primary btn-size" (click)="deleteDiscount(discount)"> Delete</button>
+          <button class="btn btn-primary btn-size btn-cancel" (click)="editDiscount(discount)"> Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

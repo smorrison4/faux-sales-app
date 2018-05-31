@@ -1,0 +1,47 @@
+<div class="col-md-12">
+  <h2 class="text-center">Add Discount</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="skuNumber">Sku:</label>
+      <input type="text" maxlength="20" formControlName="skuNumber" placeholder="Sku" name="skuNumber" class="form-control width-80" id="skuNumber">
+    </div>
+
+    <div class="form-group">
+      <label for="isBogo">BOGO:</label>
+      <input type="text" minlength="1" maxlength="3" formControlName="isBogo" placeholder="Y/N" name="isBogoe" class="form-control width-40" id="isBogo">
+    </div>
+
+    <div class="form-group">
+      <label for="percentOff">Percent Off:</label>
+      <input type="number" formControlName="percentOff" placeholder="Percent off" name="percentOff" class="form-control width-128" id="percentOff">
+    </div>
+
+    <div class="form-group">
+      <label for="amountOff">Amount Off:</label>
+      <input type="number" formControlName="amountOff" placeholder="Amount off" name="amountOff" class="form-control width-128" id="amountOff">
+    </div>
+
+    <div class="form-group">
+      <label for="isDisplayRequired">Is Display Required:</label>
+      <input type="text" minlength="1" maxlength="3" formControlName="isDisplayRequired" placeholder="Y/N" name="isDisplayRequired" class="form-control width-40" id="isDisplayRequired">
+    </div>
+
+    <div class="form-group">
+      <label for="qualifyingTerms">Qualifying Terms:</label>
+      <input type="text" minlength="1" maxlength="255" formControlName="qualifyingTerms" placeholder="Qualifying terms" name="qualifyingTerms" class="form-control width-256" id="qualifyingTerms">
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">Start Date:</label>
+      <input type="date" formControlName="startDate" placeholder="Start date" name="startDate" class="form-control width-128" id="startDate">
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">End Date:</label>
+      <input type="date" formControlName="endDate" placeholder="End date" name="endDate" class="form-control width-128" id="endDate">
+    </div>
+
+    <button class="btn btn-primary btn-size">Add</button>
+    <button type="button" class="btn btn-secondary btn-size btn-cancel" (click)="onCancel()">Cancel</button>
+  </form>
+</div>

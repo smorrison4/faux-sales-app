@@ -3,7 +3,6 @@ import {CustomerService} from "../../service/customer.service";
 import {Router} from "@angular/router";
 import {Customer} from "../../model/customer.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-//import {first} from "rxjs/operators";
 
 @Component({
   selector: 'app-add-customer',

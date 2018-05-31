@@ -8,3 +8,4 @@
 .width-128 { width: 128px }
 .width-180 { width: 180px }
 .width-256 { width: 256px }
+.table-border { border-width: 2px; border-color: black; margin-left:10px; margin-right: 10px}

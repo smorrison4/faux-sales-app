@@ -36,6 +36,23 @@ export class EditCustomerComponent implements OnInit {
     this.editForm.setValue(data);
   }
 
+// Keydown listener
+/*
+@Component({
+  selector: 'material-app',
+  templateUrl: 'app.component.html'
+})
+export class AppComponent { 
+  allowedChars = new Set('0123456789'.split('').map(c => c.charCodeAt(0)));
+
+  check(event: KeyboardEvent) {
+    // 31 and below are control keys, don't block them.
+    if (event.keyCode > 31 && !this.allowedChars.has(event.keyCode)) {
+      event.preventDefault();
+    }
+  }
+}*/
+
   onSubmit() {
     let customer : Customer = this.editForm.value;
     if(! customer.clientNumber) {
