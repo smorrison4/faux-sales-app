@@ -3,9 +3,10 @@
 .btn-margin-below { margin-bottom: 20px}
 .btn-size { height:35px}
 .id-field { display:inline; margin-left:20px; width:80px }
+.width-date { width: 170px }
 .width-40 { width: 40px }
 .width-80 { width: 80px }
 .width-128 { width: 128px }
 .width-180 { width: 180px }
 .width-256 { width: 256px }
-.table-border { border-width: 2px; border-color: black; margin-left:10px; margin-right: 10px}
+.table-border { border-width: 1px; border-color: lightgray; border-style: solid; margin-left:10px; margin-right: 10px}
