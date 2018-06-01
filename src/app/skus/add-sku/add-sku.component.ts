@@ -29,19 +29,19 @@ export class AddSkuComponent implements OnInit {
   onSubmit() {
     let sku : Sku = this.addForm.value;
     if(! sku.skuNumber) {
-      alert('Please fill in the SkuNumber field.');
+      alert('Please fill in the Sku.');
       return;
     }
     if(! sku.name) {
-      alert('Please fill in the Name field.');
+      alert('Please fill in the Name.');
       return;
     }
     if(! sku.description) {
-      alert('Please fill in the Description field.');
+      alert('Please fill in the Description.');
       return;
     }
     if(! sku.regularPrice) {
-      alert('Please fill in the RegularPrice field.');
+      alert('Please fill in the Regular Price.');
       return;
     }
     let returnMessage: string = this.skuService.updateSku(sku);

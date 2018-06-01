@@ -20,8 +20,10 @@ export class ListCustomerComponent implements OnInit {
   }
 
   deleteCustomer(customer: Customer): void {
-    this.customerService.deleteCustomer(customer.id)
-    this.customers = this.customers.filter(u => u !== customer);
+    if(window.confirm('Are you sure you want to delete this customer?')){
+      this.customerService.deleteCustomer(customer.id)
+      this.customers = this.customers.filter(u => u !== customer);
+    }
   };
 
   editCustomer(customer: Customer): void {

@@ -39,23 +39,23 @@ export class EditRepComponent implements OnInit {
   onSubmit() {
     let rep : Rep = this.editForm.value;
     if(! rep.firstName) {
-      alert('Please fill in the First Name field.');
+      alert('Please fill in the First Name.');
       return;
     }
     if(! rep.lastName) {
-      alert('Please fill in the Last Name field.');
+      alert('Please fill in the Last Name.');
       return;
     }
     if(! rep.email) {
-      alert('Please fill in the Email field.');
+      alert('Please fill in the Email.');
       return;
     }
     if(! rep.initials) {
-      alert('Please fill in the Initials field.');
+      alert('Please fill in the Initials.');
       return;
     }
     if(! rep.isActive) {
-      alert('Please fill in the Active field.');
+      alert('Please fill in if Active or not.');
       return;
     }
     let returnMessage: string = this.repService.updateRep(rep);

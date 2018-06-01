@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Discount} from '../model/discount.model';
+import { Discount} from '../model/discount.model';
 import { forEach } from '@angular/router/src/utils/collection';
 
 @Injectable()
@@ -106,6 +106,16 @@ export class DiscountService {
     //return this.http.put(this.baseUrl + '/' + discount.id, discount);
   }
 
+  deleteAllDiscountsInSku (skuNumber: string) {
+    let jMax = this.discounts.length;
+    for( var j = jMax-1; j >= 0; j-- ) {
+      var item = this.discounts[j];
+      if(item.skuNumber === skuNumber) {
+        this.discounts.splice(j,1);
+      }
+    }
+  }
+  
   deleteDiscount (id: number) : string {
     this.discounts.forEach( (item, index) => {
       if(item.id === id) {

@@ -20,8 +20,10 @@ export class ListUserComponent implements OnInit {
   }
 
   deleteUser(user: User): void {
-    this.userService.deleteUser(user.id)
-    this.users = this.users.filter(u => u !== user);
+    if(window.confirm('Are you sure you want to delete this user?')){
+      this.userService.deleteUser(user.id)
+      this.users = this.users.filter(u => u !== user);
+    }
   };
 
   editUser(user: User): void {

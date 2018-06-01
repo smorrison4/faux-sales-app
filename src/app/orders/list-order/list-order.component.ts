@@ -21,8 +21,10 @@ export class ListOrderComponent implements OnInit {
   }
 
   deleteOrder(order: Order): void {
-    this.orderService.deleteOrder(order.id)
-    this.orders = this.orders.filter(u => u !== order);
+    if(window.confirm('Are you sure you want to delete this order?')){
+      this.orderService.deleteOrder(order.id)
+      this.orders = this.orders.filter(u => u !== order);
+    }
   };
 
   editOrder(order: Order): void {

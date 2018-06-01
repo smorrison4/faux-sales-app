@@ -44,31 +44,31 @@ export class EditDiscountComponent implements OnInit {
   onSubmit() {
     let discount : Discount = this.editForm.value;
     if(! discount.skuNumber) {
-      alert('Please fill in the SkuNumber field.');
+      alert('Please fill in the Sku.');
       return;
     }
     if(! discount.percentOff) {
-      alert('Please fill in the PercentOff field.');
+      alert('Please fill in the Percent Off.');
       return;
     }
     if(! discount.amountOff) {
-      alert('Please fill in the AmountOff field.');
+      alert('Please fill in the Amount Off.');
       return;
     }
     if(! discount.isDisplayRequired) {
-      alert('Please fill in the IsDisplayRequired field.');
+      alert('Please fill in if a Display is Required or not.');
       return;
     }
     if(! discount.qualifyingTerms) {
-      alert('Please fill in the QualifyingTerms field.');
+      alert('Please fill in the Qualifying Terms.');
       return;
     }
     if(! discount.startDate) {
-      alert('Please fill in the StartDate field.');
+      alert('Please fill in the Start Date.');
       return;
     }
     if(! discount.endDate) {
-      alert('Please fill in the EndDate field.');
+      alert('Please fill in the End Date.');
       return;
     }
     let returnMessage: string = this.discountService.updateDiscount(discount);

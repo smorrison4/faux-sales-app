@@ -28,23 +28,23 @@ export class AddRepComponent implements OnInit {
   onSubmit() {
     let rep : Rep = this.addForm.value;
     if(! rep.firstName) {
-      alert('Please fill in the FirstName field.');
+      alert('Please fill in the First Name.');
       return;
     }
     if(! rep.lastName) {
-      alert('Please fill in the LastName field.');
+      alert('Please fill in the Last Name.');
       return;
     }
     if(! rep.email) {
-      alert('Please fill in the Email field.');
+      alert('Please fill in the Email.');
       return;
     }
     if(! rep.initials) {
-      alert('Please fill in the Initials field.');
+      alert('Please fill in the Initials.');
       return;
     }
     if(! rep.isActive) {
-      alert('Please fill in the IsActive field.');
+      alert('Please fill in if Active or not.');
       return;
     }
     let returnMessage: string = this.repService.updateRep(rep);

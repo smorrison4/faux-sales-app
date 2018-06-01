@@ -29,8 +29,10 @@ export class ListDiscountComponent implements OnInit {
   }
 
   deleteDiscount(discount: Discount): void {
-    this.discountService.deleteDiscount(discount.id)
-    this.discounts = this.discounts.filter(u => u !== discount);
+    if(window.confirm('Are you sure you want to delete this discount?')){
+      this.discountService.deleteDiscount(discount.id)
+      this.discounts = this.discounts.filter(u => u !== discount);
+    }
   };
 
   editDiscount(discount: Discount): void {

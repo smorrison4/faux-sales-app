@@ -20,8 +20,10 @@ export class ListRepComponent implements OnInit {
   }
 
   deleteRep(rep: Rep): void {
-    this.repService.deleteRep(rep.id)
-    this.reps = this.reps.filter(u => u !== rep);
+    if(window.confirm('Are you sure you want to delete this rep?')){
+      this.repService.deleteRep(rep.id)
+      this.reps = this.reps.filter(u => u !== rep);
+    }
   };
 
   editRep(rep: Rep): void {

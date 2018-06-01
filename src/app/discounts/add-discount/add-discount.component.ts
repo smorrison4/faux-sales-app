@@ -35,35 +35,19 @@ export class AddDiscountComponent implements OnInit {
   onSubmit() {
     let discount : Discount = this.addForm.value;
     if(! discount.skuNumber) {
-      alert('Please fill in the Sku field.');
+      alert('Please fill in the Sku.');
       return;
     }
-    if(! discount.skuNumber) {
-      alert('Please fill in the SkuNumber field.');
-      return;
-    }
-    if(! discount.percentOff) {
-      alert('Please fill in the PercentOff field.');
-      return;
-    }
-    if(! discount.amountOff) {
-      alert('Please fill in the AmountOff field.');
+    if((discount.percentOff) == null && (discount.amountOff == null)) {
+      alert('Please fill in the Percent Off of Amount Off.');
       return;
     }
     if(! discount.isDisplayRequired) {
-      alert('Please fill in the IsDisplayRequired field.');
-      return;
-    }
-    if(! discount.qualifyingTerms) {
-      alert('Please fill in the QualifyingTerms field.');
+      alert('Please fill in the Is Display Required.');
       return;
     }
     if(! discount.startDate) {
-      alert('Please fill in the StartDate field.');
-      return;
-    }
-    if(! discount.endDate) {
-      alert('Please fill in the EndDate field.');
+      alert('Please fill in the Start Date.');
       return;
     }
     let returnMessage: string = this.discountService.updateDiscount(discount);

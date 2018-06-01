@@ -28,23 +28,23 @@ export class AddCustomerComponent implements OnInit {
   onSubmit() {
     let customer : Customer = this.addForm.value;
     if(! customer.clientNumber) {
-      alert('Please fill in the ClientNumber field.');
+      alert('Please fill in the Client Number.');
       return;
     }
     if(! customer.location) {
-      alert('Please fill in the Location field.');
+      alert('Please fill in the Location.');
       return;
     }
     if(! customer.email) {
-      alert('Please fill in the Email field.');
+      alert('Please fill in the Email.');
       return;
     }
     if(! customer.phoneNumber) {
-      alert('Please fill in the PhoneNumber field.');
+      alert('Please fill in the Phone Number.');
       return;
     }
     if(! customer.contactName) {
-      alert('Please fill in the ContactName field.');
+      alert('Please fill in the Contact Name.');
       return;
     }
     let returnMessage: string = this.customerService.updateCustomer(customer);

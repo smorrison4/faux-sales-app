@@ -27,9 +27,9 @@ export class EditOrderComponent implements OnInit {
     let order: Order = this.orderService.getOrderById(orderId);
     this.editForm = this.formBuilder.group({
       id: [],
-      creditedRep: ['', Validators.required],
-      enteredBy: ['', Validators.required],
-      entryDateAndTime: ['', Validators.required],
+      creditedRep: [],
+      enteredBy: [],
+      entryDateAndTime: [],
     });
     var data = this.orderService.getOrderById(+orderId)
     this.editForm.setValue(data);
@@ -38,15 +38,15 @@ export class EditOrderComponent implements OnInit {
   onSubmit() {
     let order : Order = this.editForm.value;
     if(! order.creditedRep) {
-      alert('Please fill in the RepGettingCredit field.');
+      alert('Please fill in the Credited Rep.');
       return;
     }
     if(! order.enteredBy) {
-      alert('Please fill in the EnteredBy field.');
+      alert('Please fill in Entered By.');
       return;
     }
     if(! order.entryDateAndTime) {
-      alert('Please fill in the EntryDateAndTime field.');
+      alert('Please fill in the Entry Date.');
       return;
     }
     let returnMessage: string = this.orderService.updateOrder(order);
