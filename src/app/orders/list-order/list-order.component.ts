@@ -28,9 +28,7 @@ export class ListOrderComponent implements OnInit {
   };
 
   editOrder(order: Order): void {
-    localStorage.removeItem("editOrderId");
-    localStorage.setItem("editOrderId", order.id.toString());
-    this.router.navigate(['edit-order']);
+    this.router.navigate(['edit-order', { key: order.id.toString()} ]);
   };
 
   addOrder(): void {

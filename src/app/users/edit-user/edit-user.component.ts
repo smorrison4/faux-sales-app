@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../service/user.service";
-import {Router} from "@angular/router";
+import {Router, NavigationExtras} from "@angular/router";
 import {User} from "../../model/user.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -16,13 +16,17 @@ export class EditUserComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    let sUserId: string = localStorage.getItem("editUserId");
-    if(!sUserId) {
+    let sKey: string = this.router.routerState.snapshot.url;
+    let nIndex = sKey.indexOf('key=');
+    if( nIndex != -1 ) {
+      sKey = sKey.slice(nIndex+4);
+    }
+    if(!sKey) {
       alert("Invalid action.")
       this.router.navigate(['list-user']);
       return;
     }
-    let userId: number = parseInt(sUserId, 10);
+    let userId: number = parseInt(sKey, 10);
     let user: User = this.userService.getUserById(userId);
     this.editForm = this.formBuilder.group({
       id: [],

@@ -16,13 +16,17 @@ export class EditCustomerComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private customerService: CustomerService) { }
 
   ngOnInit() {
-    let sCustomerId: string = localStorage.getItem("editCustomerId");
-    if(!sCustomerId) {
+    let sKey: string = this.router.routerState.snapshot.url;
+    let nIndex = sKey.indexOf('key=');
+    if( nIndex != -1 ) {
+      sKey = sKey.slice(nIndex+4);
+    }
+    if(!sKey) {
       alert("Invalid action.")
       this.router.navigate(['list-customer']);
       return;
     }
-    let customerId: number = parseInt(sCustomerId, 10);
+    let customerId: number = parseInt(sKey, 10);
     let customer: Customer = this.customerService.getCustomerById(customerId);
     this.editForm = this.formBuilder.group({
       id: [],

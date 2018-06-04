@@ -27,9 +27,7 @@ export class ListCustomerComponent implements OnInit {
   };
 
   editCustomer(customer: Customer): void {
-    localStorage.removeItem("editCustomerId");
-    localStorage.setItem("editCustomerId", customer.id.toString());
-    this.router.navigate(['edit-customer']);
+    this.router.navigate(['edit-customer', { key: customer.id.toString()} ]);
   };
 
   addCustomer(): void {

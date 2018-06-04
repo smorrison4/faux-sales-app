@@ -1,0 +1,15 @@
+<div class="modal-container" *ngIf="isOpen">
+  <div class="modal-overlay" (click)="close(true)"></div>
+  <div  class="app-modal">
+    <div class="modaltitle">
+      <h3 style="margin-left:10px">{{modalTitle}}</h3>
+    </div>
+    <div style="margin-left:10px" class="body">
+      <ng-content></ng-content>
+      <button *ngIf="btn1Test" class="btn btn-primary btn-size btn-margin-below" (click)="close(btn1Text)">{{btn1Text}}</button>
+      <button *ngIf="btn2Text" class="btn btn-size btn-cancel btn-margin-below" (click)="close(btn2Text)">{{btn2Text}}</button>
+      <button *ngIf="btn3Text" class="btn btn-size btn-cancel btn-margin-below" (click)="close(btn3Text)">{{btn3Text}}</button>
+    </div>
+  </div>
+</div>
+  

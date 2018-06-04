@@ -20,14 +20,14 @@
     <thead>
     <tr>
       <th class="hidden">Id</th>
-      <th>SkuNumber</th>
-      <th>IsBogo</th>
-      <th>PercentOff</th>
-      <th>AmountOff</th>
-      <th>IsDisplayRequired</th>
-      <th>QualifyingTerms</th>
-      <th>StartDate</th>
-      <th>EndDate</th>
+      <th>SKU</th>
+      <th>BOGO</th>
+      <th>Percent Off</th>
+      <th>Amount Off</th>
+      <th>Display Required</th>
+      <th>Qualifying Terms</th>
+      <th>Start Date</th>
+      <th>End Date</th>
       <th>Action</th>
     </tr>
     </thead>
@@ -35,10 +35,12 @@
     <tr *ngFor="let discount of discounts">
       <td class="hidden">{{discount.id}}</td>
       <td>{{discount.skuNumber}}</td>
-      <td>{{discount.isBogo}}</td>
+      <td class="width-80" *ngIf="discount.isBogo">Yes</td>
+      <td class="width-80" *ngIf="discount.isBogo == false">no</td>
       <td>{{discount.percentOff}}</td>
       <td>{{discount.amountOff}}</td>
-      <td>{{discount.isDisplayRequired}}</td>
+      <td class="width-80" *ngIf="discount.isDisplayRequired">Yes</td>
+      <td class="width-80" *ngIf="discount.isDisplayRequired == false">no</td>
       <td>{{discount.qualifyingTerms}}</td>
       <td>{{discount.startDate}}</td>
       <td>{{discount.endDate}}</td>

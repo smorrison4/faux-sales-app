@@ -20,7 +20,7 @@
     <thead>
     <tr>
       <th class="hidden">Id</th>
-      <th>Sku Number</th>
+      <th>SKU</th>
       <th>Name</th>
       <th>Description</th>
       <th>Regular Price</th>
@@ -42,5 +42,9 @@
     </tbody>
   </table>
         <!-- <i class="icon-trash"></i> -->
+
+  <app-modal modalId="deleteConfirmation" blocking="true" closebtn="true" (close)="endFcn('close')" (blur)="endFcn('blur')">
+    <p>Are you sure you want to delete this SKU  and all associated discounts?</p>
+  </app-modal>        
 </div>
 

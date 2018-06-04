@@ -17,13 +17,17 @@ export class EditOrderComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private orderService: OrderService) { }
 
   ngOnInit() {
-    let sOrderId: string = localStorage.getItem("editOrderId");
-    if(!sOrderId) {
+    let sKey: string = this.router.routerState.snapshot.url;
+    let nIndex = sKey.indexOf('key=');
+    if( nIndex != -1 ) {
+      sKey = sKey.slice(nIndex+4);
+    }
+    if(!sKey) {
       alert("Invalid action.")
       this.router.navigate(['list-order']);
       return;
     }
-    let orderId: number = parseInt(sOrderId, 10);
+    let orderId: number = parseInt(sKey, 10);
     let order: Order = this.orderService.getOrderById(orderId);
     this.editForm = this.formBuilder.group({
       id: [],

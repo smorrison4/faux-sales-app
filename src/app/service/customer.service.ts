@@ -94,4 +94,93 @@ export class CustomerService {
     //return this.http.delete(this.baseUrl + '/' + id);
   }
 }
+/* Http service
+import { Injectable } from '@angular/core';
+import { Http, Headers, ResponseContentType } from '@angular/http';
 
+// HttpService - Use to make authorized requests to the API,
+// operates as an interceptor, adding headers, etc.
+
+@Injectable()
+export class HttpService {
+
+  private apiUrl = 'http://localhost:3000/api';
+
+  constructor(private http: Http) { }
+
+  createAuthorizationHeader(headers: Headers) {
+
+    let token = this.getAuthToken();
+
+    headers.append('Accept', 'application/json');
+    headers.append('Authorization', 'Bearer ' + token);
+    headers.append('Content-Type', 'application/json');
+
+    return false;
+  }
+
+  delete(url, body) {
+    let headers = new Headers();
+    let token = this.getAuthToken();
+
+    headers.append('Authorization', 'Bearer ' + token);
+
+    return this.http.delete(this.apiUrl + url, {
+      headers: headers,
+      body: body
+    });
+  }
+
+  get(url) {
+    let headers = new Headers();
+    this.createAuthorizationHeader(headers);
+
+    return this.http.get(this.apiUrl + url, {
+      headers: headers
+    });
+  }
+
+  getPublic(url) {
+
+    return this.http.get(this.apiUrl + url);
+
+  }
+
+  getAuthToken() {
+    let token = sessionStorage.getItem(JSON.parse('authToken'));
+    if (token) {
+      return token;
+    }
+    return false;
+  }
+
+  post(url, data) {
+
+    let headers = new Headers();
+    this.createAuthorizationHeader(headers);
+
+    return this.http.post(this.apiUrl + url, data, {
+      headers: headers
+    });
+  }
+
+  postBlob(url, data) {
+    this.createAuthorizationHeader(headers);
+
+    return this.http.post(this.apiUrl + url, data, {
+      responseType: ResponseContentType.Blob, headers: headers
+    });
+  }
+
+  put(url, data) {
+
+    let headers = new Headers();
+
+    this.createAuthorizationHeader(headers);
+
+    return this.http.put(this.apiUrl + url, data, {
+      headers: headers
+    });
+  }
+}
+*/

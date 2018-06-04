@@ -16,13 +16,17 @@ export class EditSkuComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private skuService: SkuService) { }
 
   ngOnInit() {
-    let sSkuId: string = localStorage.getItem("editSkuId");
-    if(!sSkuId) {
+    let sKey: string = this.router.routerState.snapshot.url;
+    let nIndex = sKey.indexOf('key=');
+    if( nIndex != -1 ) {
+      sKey = sKey.slice(nIndex+4);
+    }
+    if(!sKey) {
       alert("Invalid action.")
       this.router.navigate(['list-sku']);
       return;
     }
-    let skuId: number = parseInt(sSkuId, 10);
+    let skuId: number = parseInt(sKey, 10);
     let sku: Sku = this.skuService.getSkuById(skuId);
     this.editForm = this.formBuilder.group({
       id: [],

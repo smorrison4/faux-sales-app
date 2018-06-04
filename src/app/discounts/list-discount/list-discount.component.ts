@@ -18,7 +18,11 @@ export class ListDiscountComponent implements OnInit {
   constructor(private router: Router, private discountService: DiscountService) { }
 
   ngOnInit() {
-    this.skuNumber = localStorage.getItem("listSkuNumberForDiscounts");
+    let skuNumber: string = this.router.routerState.snapshot.url;
+    let nIndex = skuNumber.indexOf('key=');
+    if( nIndex != -1 ) {
+      skuNumber = skuNumber.slice(nIndex+4);
+    }
     if(!this.skuNumber) {
       alert("Invalid action in list discount.")
       this.router.navigate(['list-discount']);
@@ -36,15 +40,11 @@ export class ListDiscountComponent implements OnInit {
   };
 
   editDiscount(discount: Discount): void {
-    localStorage.removeItem("editDiscountId");
-    localStorage.setItem("editDiscountId", discount.id.toString());
-    this.router.navigate(['edit-discount']);
+    this.router.navigate(['edit-discount', { key:discount.id.toString()} ]);
   };
 
   addDiscount(): void {
-    localStorage.removeItem("editSkuIsForDiscount");
-    localStorage.setItem("editSkuIsForDiscount", this.skuNumber);
-    this.router.navigate(['add-discount']);
+    this.router.navigate(['add-discount', { key: this.skuNumber.toString()}]);
   };
 
   menuClick(menuItem: string) {

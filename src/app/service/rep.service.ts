@@ -10,9 +10,9 @@ export class RepService {
 
   reps: Rep[] = [
     new Rep(1, 'Abby', 'Ames', 'email1@gmail.com', 'AA', true),
-    new Rep(2, 'Blake', 'Black', 'email2@gmail.com', 'BB', true),
+    new Rep(2, 'Blake', 'Black', 'email2@gmail.com', 'BB', false),
     new Rep(3, 'Carl', 'Coney', 'email3@gmail.com', 'CC', true),
-    new Rep(4, 'Devon', 'Drake', 'email4@gmail.com', 'DD', true),
+    new Rep(4, 'Devon', 'Drake', 'email4@gmail.com', 'DD', false),
  ];
 
   getReps() : Rep[] {

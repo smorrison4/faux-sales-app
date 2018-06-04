@@ -18,7 +18,16 @@ export class AddDiscountComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private discountService: DiscountService, private skuService: SkuService) { }
 
   ngOnInit() {
-    let skuNumber: string = localStorage.getItem("editSkuIsForDiscount");
+    let skuNumber: string = this.router.routerState.snapshot.url;
+    let nIndex = skuNumber.indexOf('key=');
+    if( nIndex != -1 ) {
+      skuNumber = skuNumber.slice(nIndex+4);
+    }
+    if(!skuNumber) {
+      alert("Invalid action in add discount.")
+      this.router.navigate(['list-discount']);
+      return;
+    }
 
     this.addForm = this.formBuilder.group({
       skuNumber: [],

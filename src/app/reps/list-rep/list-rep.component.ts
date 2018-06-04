@@ -17,6 +17,10 @@ export class ListRepComponent implements OnInit {
   ngOnInit() {
     var data = this.repService.getReps()
     this.reps = data;
+    var jMax = this.reps.length;
+    for( var j = 0; j < jMax; j++ ) {
+      var rep = this.reps[j];
+    }
   }
 
   deleteRep(rep: Rep): void {
@@ -27,9 +31,7 @@ export class ListRepComponent implements OnInit {
   };
 
   editRep(rep: Rep): void {
-    localStorage.removeItem("editRepId");
-    localStorage.setItem("editRepId", rep.id.toString());
-    this.router.navigate(['edit-rep']);
+    this.router.navigate(['edit-rep', { key: rep.id.toString()} ]);
   };
 
   addRep(): void {

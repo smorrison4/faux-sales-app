@@ -10,19 +10,22 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./edit-rep.component.css']
 })
 export class EditRepComponent implements OnInit {
-
   rep: Rep;
   editForm: FormGroup;
   constructor(private formBuilder: FormBuilder,private router: Router, private repService: RepService) { }
 
   ngOnInit() {
-    let sRepId: string = localStorage.getItem("editRepId");
-    if(!sRepId) {
+    let sKey: string = this.router.routerState.snapshot.url;
+    let nIndex = sKey.indexOf('key=');
+    if( nIndex != -1 ) {
+      sKey = sKey.slice(nIndex+4);
+    }
+    if(!sKey) {
       alert("Invalid action.")
       this.router.navigate(['list-rep']);
       return;
     }
-    let repId: number = parseInt(sRepId, 10);
+    let repId: number = parseInt(sKey, 10);
     let rep: Rep = this.repService.getRepById(repId);
     this.editForm = this.formBuilder.group({
       id: [],
@@ -30,12 +33,10 @@ export class EditRepComponent implements OnInit {
       lastName: [''],
       email: [''],
       initials: [''],
-      isActive: [''],
+      isActive: [],
     });
-    var data = this.repService.getRepById(+repId)
-    this.editForm.setValue(data);
+    this.editForm.setValue(rep);
   }
-
   onSubmit() {
     let rep : Rep = this.editForm.value;
     if(! rep.firstName) {
@@ -52,10 +53,6 @@ export class EditRepComponent implements OnInit {
     }
     if(! rep.initials) {
       alert('Please fill in the Initials.');
-      return;
-    }
-    if(! rep.isActive) {
-      alert('Please fill in if Active or not.');
       return;
     }
     let returnMessage: string = this.repService.updateRep(rep);

@@ -18,13 +18,17 @@ export class EditDiscountComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private router: Router, private discountService: DiscountService) { }
 
   ngOnInit() {
-    let sDiscountId: string = localStorage.getItem("editDiscountId");
-    if(!sDiscountId) {
+    let sKey: string = this.router.routerState.snapshot.url;
+    let nIndex = sKey.indexOf('key=');
+    if( nIndex != -1 ) {
+      sKey = sKey.slice(nIndex+4);
+    }
+    if(!sKey) {
       alert("Invalid action.")
       this.router.navigate(['list-discount']);
       return;
     }
-    let discountId: number = parseInt(sDiscountId, 10);
+    let discountId: number = parseInt(sKey, 10);
     let discount: Discount = this.discountService.getDiscountById(discountId);
     this.editForm = this.formBuilder.group({
       id: [],
@@ -67,8 +71,8 @@ export class EditDiscountComponent implements OnInit {
       alert('Please fill in the Start Date.');
       return;
     }
-    if(! discount.endDate) {
-      alert('Please fill in the End Date.');
+    if( (discount.endDate) && ( discount.endDate >= discount.startDate )) {
+      alert(' Please enter a start date less than the end date.');
       return;
     }
     let returnMessage: string = this.discountService.updateDiscount(discount);

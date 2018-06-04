@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {DiscountService} from '../../service/discount.service';
+import {ModalService} from '../../messagebox/modal.service';
+import {ModalComponent} from '../../messagebox/modal.component';
 import {SkuService} from "../../service/sku.service";
 import {Sku} from "../../model/sku.model";
 
@@ -12,26 +14,31 @@ import {Sku} from "../../model/sku.model";
 export class ListSkuComponent implements OnInit {
 
   skus: Sku[];
-
-  constructor(private router: Router, private skuService: SkuService, private discountService: DiscountService) { }
+  skuToDelete: Sku = null;
+  constructor(private router: Router, private skuService: SkuService, private discountService: DiscountService, private modalService: ModalService) { }
 
   ngOnInit() {
     var data = this.skuService.getSkus()
     this.skus = data;
   };
-
+  
   deleteSku(sku: Sku): void {
-    if(window.confirm('Are you sure you want to delete this sku and all associated discounts?')){
-      this.discountService.deleteAllDiscountsInSku(sku.skuNumber);
-      this.skuService.deleteSku(sku.id)
-      this.skus = this.skus.filter(u => u !== sku);
+    if(window.confirm('Are you sure you want to delete this customer?')){
+      this.deleteCallback(sku);
     }
+      //var self = this;
+    //this.skuToDelete = sku;
+    //this.modalService.open('deleteConfirmation', 10000)
   };
 
+  deleteCallback(sku): void {
+    this.discountService.deleteAllDiscountsInSku(sku.skuNumber);
+    this.skuService.deleteSku(sku.id)
+    this.skus = this.skus.filter(u => u !== sku);
+  }
+
   editSku(sku: Sku): void {
-    localStorage.removeItem("editSkuId");
-    localStorage.setItem("editSkuId", sku.id.toString());
-    this.router.navigate(['edit-sku']);
+    this.router.navigate(['edit-sku', { key: sku.id.toString()} ]);
   };
 
   addSku(): void {
@@ -39,10 +46,12 @@ export class ListSkuComponent implements OnInit {
   };
 
   showSkuDiscounts(sku: Sku) {
-    localStorage.removeItem("listSkuNumberForDiscounts");
-    localStorage.setItem("listSkuNumberForDiscounts", sku.skuNumber);
-    this.router.navigate(['list-discount']);
+    this.router.navigate(['list-discount', { key: sku.skuNumber.toString()}]);
   };
+
+  endFcn(sv:string) {
+    alert(sv);
+  }
 
   menuClick(menuItem: string) {
     menuItem = menuItem.toUpperCase();

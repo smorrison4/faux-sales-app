@@ -43,10 +43,6 @@ export class AddRepComponent implements OnInit {
       alert('Please fill in the Initials.');
       return;
     }
-    if(! rep.isActive) {
-      alert('Please fill in if Active or not.');
-      return;
-    }
     let returnMessage: string = this.repService.updateRep(rep);
     if( returnMessage != '') {
       alert(returnMessage);
