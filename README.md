@@ -2,12 +2,17 @@
 faux-sales-app is a fake sales app as an example of using Angular 6, by someone who is still learning it.
 It is an open source library released under the MIT License: http://www.opensource.org/licenses/mit-license.php
 
+To work with the source files:
+After installing npm and angular, download the source into your directory.
+Run `npm install`
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
 
 Demo
 ====
 
-A demo at http://www.methodicalmiracles.com/faux-sales-app
+A demo is at http://www.methodicalmiracles.com/faux-sales-app
 
 Released under the MIT License: http://www.opensource.org/licenses/mit-license.php
 
@@ -18,7 +23,7 @@ angular6-example-master on github at https://github.com/only2dhir/angular6-examp
 Features
 ========
 
-It runs client-side only. It allows you to list, add, edit, and delete customers, orders, skus, and users.
+It runs client-side only. It allows you to list, add, edit, and delete customers, discounts, orders, reps, skus, and users.
 
 To log in follow the directions on the top of the login page.
 
